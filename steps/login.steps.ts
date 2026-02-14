@@ -3,6 +3,7 @@ import { expect } from 'chai';
 import { CustomWorld } from '../support/world';
 import { Login } from '../screenplay/tasks/login';
 import { LoginResult } from '../screenplay/questions/loginResult';
+import { LoginBloqued } from '../screenplay/questions/loginBloqued';
 import { setDefaultTimeout } from '@cucumber/cucumber';
 setDefaultTimeout(20 * 1000); // 10 segundos
 
@@ -23,3 +24,14 @@ Then('debería ver el título de la página de productos', async function (this:
   expect(title.trim()).to.equal('Swag Labs');
 });
 
+Then('debería validar estado bloqueado', async function (this: CustomWorld) {
+  const title = await this.actor!.answer(LoginBloqued.title()
+  );
+  expect(title.trim()).to.equal('Epic sadface: Sorry, this user has been locked out.');
+});
+
+Then('debería validar loguin invalido', async function (this: CustomWorld) {
+  const title = await this.actor!.answer(LoginBloqued.title()
+  );
+  expect(title.trim()).to.equal('Epic sadface: Username and password do not match any user in this service');
+});
