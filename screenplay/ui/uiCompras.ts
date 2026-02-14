@@ -13,8 +13,9 @@ export const UiCompras = {
   // Página principal (lista de inventario)
   addToCartButtonFor: (productName: string) =>
     `#add-to-cart-${normalize(productName)}`,
-  cartIcon: '.shopping_cart_link',
-  inventoryList: '.inventory_list',
+  
+  cartIcon: '.shopping_cart_link',   //botón/carrito en header
+
 };
 
 

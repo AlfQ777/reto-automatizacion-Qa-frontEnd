@@ -1,4 +1,3 @@
-// screenplay/interactions/enterCredentials.ts
 import { Actor } from '../actors/actor';
 import { uiLogin } from '../ui/uiLogin';
  
