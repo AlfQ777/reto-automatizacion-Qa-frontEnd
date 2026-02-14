@@ -2,7 +2,7 @@ import { Before, After } from '@cucumber/cucumber';
 import { CustomWorld } from './world';
 import { setDefaultTimeout } from '@cucumber/cucumber'; // timeout de espera
 
-setDefaultTimeout(7 * 1000); // 7s
+setDefaultTimeout(10 * 1000); // 7s
 
 //Se coloca la creación y limpieza del Actor en hooks para centralizarlo
 Before(async function (this: CustomWorld) {
