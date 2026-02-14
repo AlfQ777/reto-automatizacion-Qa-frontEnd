@@ -22,6 +22,12 @@ export class Compra {
         return new Compra('ADD_TO_CART_DETAIL');
     }
 
+    /** Método 3: add to cart desde página principa  */
+
+    static addToCartInMain(productName: string) {
+        return new Compra('ADD_TO_CART_MAIN', productName);
+    }
+
     async performAs(actor: Actor): Promise<void> {
         switch (this.action) {
             case 'CLICK_PRODUCT': {
@@ -39,6 +45,14 @@ export class Compra {
                 break;
             }
 
+
+            case 'ADD_TO_CART_MAIN': {
+                console.log(`Añadiendo al carrito productos desde la pagina pricipal`);
+                const selector = UiCompras.addToCartButtonFor(this.productName!);
+                console.log('Selector generado:', selector);
+                await new ClickButton(selector).execute(actor);
+                break;
+            }
 
         }
     }

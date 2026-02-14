@@ -9,6 +9,6 @@ export class ClickButton {
     const locator = page.locator(this.selector);
 
     await locator.waitFor({ state: 'visible' });
-    await locator.click();
+    await locator.click({timeout: 10000});
   }
 }
